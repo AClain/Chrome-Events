@@ -1,0 +1,19 @@
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  width: 500px;
+  height: 500px;
+  overflow: hidden;
+}
+
+#event-list {
+  flex-grow: 1;
+  height: 380px;
+  overflow-y: scroll;
+  scrollbar-width: none; /* hides the scrollbar */
+}
+
+#event-list::-webkit-scrollbar {
+  display: none; /* hides the scrollbar */
+}

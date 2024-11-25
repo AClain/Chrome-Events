@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quick calendar</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-reboot.min.css" rel="stylesheet">
+    <link href="css/bootstrap-datapicker.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+
+    <style>
+        @keyframes loader2022 {
+            50% {
+                transform: rotate(360deg)
+            }
+        }
+
+        .ccc2002 {
+            fill: none;
+            stroke-width: 5;
+            stroke-linecap: round;
+            animation-name: loader2022;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+            transform-origin: 50% 50%
+        }
+
+        .ccc2002:nth-child(1) {
+            stroke: currentColor;
+            stroke-dasharray: 50;
+            animation-delay: -.2s;
+            opacity: 25%
+        }
+
+        .ccc2002:nth-child(2) {
+            stroke: currentColor;
+            stroke-dasharray: 100;
+            opacity: 50%;
+            animation-delay: -.4s
+        }
+
+        .ccc2002:nth-child(3) {
+            stroke: currentColor;
+            stroke-dasharray: 180;
+            opacity: 75%;
+            animation-delay: -.6s
+        }
+
+        .ccc2002:nth-child(4) {
+            stroke: currentColor;
+            stroke-dasharray: 350;
+            stroke-dashoffset: -100;
+            opacity: 100%;
+            animation-delay: -.8s
+        }
+    </style>
+</head>
+
+<body data-bs-theme="dark">
+    <div class="container my-4">
+        <ul class="nav nav-tabs" id="tabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="events-tab" data-bs-toggle="tab" data-bs-target="#events-tab-pane"
+                    type="button" role="tab" aria-controls="events-tab-pane" aria-selected="true">Upcoming
+                    events</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"
+                    type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Add an
+                    event</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="tab-contents">
+            <div class="tab-pane fade show active" id="events-tab-pane" role="tabpanel" aria-labelledby="events-tab"
+                tabindex="0">
+                <div class="d-flex flex-column mb-3 p-3 justify-content-center align-items-center" id="event-list">
+                    <div class="h-25 w-25" id="spinner">
+                        <svg viewbox="0 0 150 150">
+                            <circle class=ccc2002 cx=75 cy=75 r=20 />
+                            <circle class=ccc2002 cx=75 cy=75 r=35 />
+                            <circle class=ccc2002 cx=75 cy=75 r=50 />
+                            <circle class=ccc2002 cx=75 cy=75 r=65 />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                <div id="new-event-div">
+                    <div class="container mt-2">
+                        <form id="eventForm">
+                            <div id="formErrors" role="alert" id="errorList">
+                            </div>
+
+                            <div class="mb-2">
+                                <label for="eventName" class="form-label">Event name</label>
+                                <input type="text" class="form-control" id="eventName" placeholder="Enter text"
+                                    required>
+                            </div>
+
+                            <div class="mb-2">
+                                <label for="eventUrl" class="form-label">Link</label>
+                                <input type="url" class="form-control" id="eventUrl"
+                                    placeholder="https://www.twitch.tv/antoinedaniel" required>
+                            </div>
+
+                            <div class="mb-2">
+                                <label for="eventUrl" class="form-label">Source</label>
+                                <input type="url" class="form-control" id="eventSourceUrl" required>
+                            </div>
+
+                            <div class="row mb-2">
+                                <div class="col">
+                                    <label for="startDate" class="form-label">Start Date</label>
+                                    <input type="text" class="form-control" id="startDate" required>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <div class="col">
+                                    <label for="startTime" class="form-label">Start Time (optional)</label>
+                                    <input type="time" class="form-control" id="startTime" required>
+                                </div>
+                                <div class="col">
+                                    <label for="endTime" class="form-label">End Time (optional)</label>
+                                    <input type="time" class="form-control" id="endTime" required>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="js/bootstrap-datepicker.js" type="text/javascript"></script>
+
+    <script src="js/main.js" type="module" defer></script>
+</body>
+
+</html>
